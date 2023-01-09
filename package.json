@@ -1,0 +1,23 @@
+{
+  "name": "kelvir-backend",
+  "version": "1.0.0",
+  "description": "This is the backend for Kelvir.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xchanti124/kelvir-backend.git"
+  },
+  "author": "Chantal Ariu <chantalariu227@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xchanti124/kelvir-backend/issues"
+  },
+  "homepage": "https://github.com/xchanti124/kelvir-backend#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
