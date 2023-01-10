@@ -4,8 +4,8 @@
   "description": "This is the backend for Kelvir.",
   "main": "server.js",
   "scripts": {
-    "start": "node kelvir-backend/server.js",
-    "server": "nodemon kelvir-backend/server.js"
+    "start": "node src/server.js",
+    "server": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
