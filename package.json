@@ -1,24 +1,31 @@
 {
   "name": "kelvir-backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is the backend for Kelvir.",
-  "main": "src/index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node kelvir-backend/server.js",
+    "server": "nodemon kelvir-backend/server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xchanti124/kelvir-backend.git"
   },
-  "author": "Chantal Ariu <chantalariu227@gmail.com>",
+  "author": "Chantal Ariu <chantalariu227@gmail.com>, Dominik Kropp <dkropp@outlook.de>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xchanti124/kelvir-backend/issues"
   },
   "homepage": "https://github.com/xchanti124/kelvir-backend#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^6.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
