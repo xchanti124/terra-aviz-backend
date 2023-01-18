@@ -19,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 //setting the API route to /api/locations
 app.use("/api/locations", require("./routes/locationRoutes"));
 
+//setting the API search route to /api/locations
+app.use("/api/search", require("./routes/searchRoutes"));
+
 //using Errorhandler
 app.use(errorHandler);
 
