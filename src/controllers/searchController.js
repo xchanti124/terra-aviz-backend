@@ -12,7 +12,7 @@ const Location = require("../models/locationModel");
 const textSearch = asyncHandler(async (req, res) => {
     const query = req.query
 
-    if (req.query.description != null){
+    if (req.query.description != null) {
         // Search function
         let querySearch = req.query.description
         //for now it searches only the description field.

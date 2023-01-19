@@ -6,5 +6,6 @@ const {
 
 router.route("/").get(textSearch);
 
+
 module.exports = router;
 
