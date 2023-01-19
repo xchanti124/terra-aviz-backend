@@ -6,7 +6,7 @@ const Location = require("../models/locationModel");
 // @route GET /api/search
 // FOR SEARCH /api/search?description=search - example /api/search?description=cool
 // FOR CATEGORY /api/search?category=category - example /api/search?category=nature
-// FOR HASHTAG /api/search?hashtag=#hashtag - example /api/search?hashtag=%23picture - %23 translates to #
+// FOR HASHTAG /api/search?hashtags=#hashtag - example /api/search?hashtag=%23picture - %23 translates to #
 
 // @acces Public
 const textSearch = asyncHandler(async (req, res) => {
