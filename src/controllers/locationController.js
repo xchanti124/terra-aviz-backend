@@ -23,6 +23,7 @@ category
 */
 const setLocation = asyncHandler(async (req, res) => {
   const location = await Location.create({
+    title: req.body.title,
     description: req.body.description,
     likes: 0,
     gAPI: req.body.gAPI, // don't have a clue yet how it will work
