@@ -18,13 +18,14 @@ likes
 gAPI
 comments
 imageLink
-hashtagArray
+hashtags
 category
 */
 const setLocation = asyncHandler(async (req, res) => {
   const location = await Location.create({
+    title: req.body.title,
     description: req.body.description,
-    likes: req.body.likes, // should be set here to zero in future and not from the front end.
+    likes: 0,
     gAPI: req.body.gAPI, // don't have a clue yet how it will work
     comments: req.body.comments,
     imageLink: req.body.imageLink,

@@ -12,6 +12,11 @@ category
 
 const locationSchema = mongoose.Schema(
   {
+    title: {
+      type: String,
+      required: [true, "please add a title value"],
+    },
+
     description: {
       type: String,
       required: [true, "please add a description value"],
@@ -38,9 +43,8 @@ const locationSchema = mongoose.Schema(
       required: [true, "please add a hashtag"],
     },
     category: {
-      // question how to handle it later, if we have like 5 category I think it should looke more like this category[2]
       type: String,
-      required: [true, "please add a hashtag"],
+      required: [true, "please add a category"],
     },
   },
   {
