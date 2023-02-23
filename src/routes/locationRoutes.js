@@ -8,7 +8,6 @@ const {
 } = require("../controllers/locationController");
 
 router.route("/").get(getLocations).post(setLocation);
-
 router.route("/:id").put(updateLocation).delete(deleteLocation);
 
 module.exports = router;
