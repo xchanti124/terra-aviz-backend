@@ -26,7 +26,11 @@ const setLocation = asyncHandler(async (req, res) => {
     title: req.body.title,
     description: req.body.description,
     likes: 0,
-    gAPI: req.body.gAPI, // don't have a clue yet how it will work
+    address: req.body.address,
+    loc: {
+      type: req.body.type,
+      coordinates: [req.body.lng, req.body.lat],
+    },
     comments: req.body.comments,
     imageLink: req.body.imageLink,
     hashtags: req.body.hashtags,
