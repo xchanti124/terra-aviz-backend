@@ -1,14 +1,5 @@
 const mongoose = require("mongoose");
 
-/* Tables
-description
-likes
-gAPI
-comments
-imageLink
-hashtags
-category
-*/
 
 const locationSchema = mongoose.Schema(
   {
@@ -25,9 +16,20 @@ const locationSchema = mongoose.Schema(
       type: Number,
       required: [true, "please add a like number should be set to 0"],
     },
-    gAPI: {
+    address: {
       type: String,
-      required: [false],
+      required: true,
+    },
+    loc: {
+      type: {
+        type: String,
+        enum: ["Point"],
+        required: true,
+      },
+      coordinates: {
+        type: [Number], //geoJson Long first -> long lat
+        required: true,
+      },
     },
     comments: {
       type: String,
