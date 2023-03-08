@@ -1,5 +1,10 @@
 const asyncHandler = require("express-async-handler");
 const Location = require("../models/locationModel");
+const {Client} = require("@googlemaps/google-maps-services-js");
+const client = new Client({})
+require('dotenv').config();
+let gmaps = process.env.GMAPS
+
 
 // @desc Get locations
 // @route GET /api/locations
@@ -22,11 +27,36 @@ hashtags
 category
 */
 const setLocation = asyncHandler(async (req, res) => {
+
+  const userAddress = req.body.address;
+  let lat, lng;
+
+  try {
+    const response = await client.geocode({
+      params: {
+        address: userAddress,
+        key: gmaps,
+      },
+      timeout: 1000, // milliseconds
+    });
+
+    const result = response.data.results[0];
+    lat = result.geometry.location.lat;
+    lng = result.geometry.location.lng;
+  } catch (error) {
+    console.log(error.response.data.error_message);
+    return res.status(400).json({ error: 'Geocoding failed, please change address' });
+  }
+
   const location = await Location.create({
     title: req.body.title,
     description: req.body.description,
     likes: 0,
-    gAPI: req.body.gAPI, // don't have a clue yet how it will work
+    address: req.body.address,
+    loc: {
+      type: req.body.type,
+      coordinates: [lng, lat],
+    },
     comments: req.body.comments,
     imageLink: req.body.imageLink,
     hashtags: req.body.hashtags,
@@ -38,6 +68,7 @@ const setLocation = asyncHandler(async (req, res) => {
 // @desc Update location
 // @route PUT /api/locations/:id
 // @acces Public will be changed later with auth to private
+
 const updateLocation = asyncHandler(async (req, res) => {
   const location = await Location.findById(req.params.id);
   // 10-01-23 not implemented yet, just an example code, could be working already but needs further testing

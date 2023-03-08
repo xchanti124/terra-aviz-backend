@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/xchanti124/kelvir-backend#readme",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.27",
     "bcrypt": "^5.1.0",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
