@@ -8,7 +8,7 @@ const Location = require("../models/locationModel");
 // FOR SEARCH /api/page?pageNumber=0
 const pages = asyncHandler(async (req, res) => {
   const locationsPerPage = 10;
-  let pageNumber = req.query.pageNumber
+  let pageNumber = req.query.pageNumber-1
 
   const pagination = await Location.find().limit(locationsPerPage).skip(locationsPerPage * pageNumber)
   res.status(200).json(pagination);
