@@ -1,4 +1,4 @@
-# kelvir-backend
+# terra-aviz-backend
 
 To run:
 
