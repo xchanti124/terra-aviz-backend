@@ -3,9 +3,11 @@ const Location = require("../models/locationModel");
 
 
 
-// @desc Get search results
-// @route GET /api/search
-// FOR SEARCH /api/page?pageNumber=1
+// @desc Get pages
+// @route GET /api/page
+// FOR PAGE /api/page?pageNumber=1
+// PAGE with SEARCH and CATEGORY example /api/page?pageNumber=1&search=shopping&category=Attractions
+// can be varied as needed
 const pages = asyncHandler(async (req, res) => {
   const locationsPerPage = 10;
   let pageNumber = req.query.pageNumber-1 || 0;
