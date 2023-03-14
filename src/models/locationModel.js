@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 const locationSchema = mongoose.Schema(
   {
     title: {
@@ -38,11 +37,6 @@ const locationSchema = mongoose.Schema(
     imageLink: {
       type: String,
       required: [true, "please add an imagelink"],
-    },
-    hashtags: {
-      //for the first MVP only one Hashtag to make it simple, later list/array
-      type: String,
-      required: [true, "please add a hashtag"],
     },
     category: {
       type: String,
