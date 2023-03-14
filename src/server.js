@@ -25,6 +25,9 @@ app.use("/api/search", require("./routes/searchRoutes"));
 // setting the auth routes
 app.use("/api/auth", require("./routes/authRoutes"));
 
+// setting the API page routes
+app.use("/api/page", require("./routes/pageRoutes"));
+
 // using Errorhandler
 app.use(errorHandler);
 
