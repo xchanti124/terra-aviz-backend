@@ -54,7 +54,7 @@ const setLocation = asyncHandler(async (req, res) => {
     likes: 0,
     address: req.body.address,
     loc: {
-      type: req.body.type,
+      type: "Point",
       coordinates: [lng, lat],
     },
     comments: req.body.comments,
