@@ -8,7 +8,12 @@ const Location = require("../models/locationModel");
 // can be varied as needed
 const pages = asyncHandler(async (req, res) => {
   const locationsPerPage = 10;
-  let pageNumber = Number(req.query.pageNumber - 1) > 0 || 0;
+  let pageNumber;
+  if (req.query.pageNumber > 0) {
+    pageNumber = req.query.pageNumber - 1;
+  } else {
+    pageNumber = 0;
+  }
 
   if (req.query.search && !req.query.category) {
     let querySearch = req.query.search;

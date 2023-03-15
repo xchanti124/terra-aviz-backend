@@ -1,10 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const Location = require("../models/locationModel");
-const {Client} = require("@googlemaps/google-maps-services-js");
-const client = new Client({})
-require('dotenv').config();
-let gmaps = process.env.GMAPS
-
+const { Client } = require("@googlemaps/google-maps-services-js");
+const client = new Client({});
+require("dotenv").config();
+let gmaps = process.env.GMAPS;
 
 // @desc Get locations
 // @route GET /api/locations
@@ -27,7 +26,6 @@ hashtags
 category
 */
 const setLocation = asyncHandler(async (req, res) => {
-
   const userAddress = req.body.address;
   let lat, lng;
 
@@ -45,7 +43,9 @@ const setLocation = asyncHandler(async (req, res) => {
     lng = result.geometry.location.lng;
   } catch (error) {
     console.log(error.response.data.error_message);
-    return res.status(400).json({ error: 'Geocoding failed, please change address' });
+    return res
+      .status(400)
+      .json({ error: "Geocoding failed, please change address" });
   }
 
   const location = await Location.create({
@@ -54,12 +54,11 @@ const setLocation = asyncHandler(async (req, res) => {
     likes: 0,
     address: req.body.address,
     loc: {
-      type: req.body.type,
+      type: "Point",
       coordinates: [lng, lat],
     },
     comments: req.body.comments,
     imageLink: req.body.imageLink,
-    hashtags: req.body.hashtags,
     category: req.body.category,
   });
   res.status(200).json(location);
