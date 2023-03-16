@@ -28,6 +28,9 @@ app.use("/api/auth", require("./routes/authRoutes"));
 // setting the API page routes
 app.use("/api/page", require("./routes/pageRoutes"));
 
+// setting the API like routes
+app.use("/api/like", require("./routes/likeRoutes"));
+
 // using Errorhandler
 app.use(errorHandler);
 
