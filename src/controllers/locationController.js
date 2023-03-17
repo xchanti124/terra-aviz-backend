@@ -2,7 +2,6 @@ const asyncHandler = require("express-async-handler");
 const Location = require("../models/locationModel");
 const { Client } = require("@googlemaps/google-maps-services-js");
 const client = new Client({});
-require("dotenv").config();
 let gmaps = process.env.GMAPS;
 
 // @desc Get locations
