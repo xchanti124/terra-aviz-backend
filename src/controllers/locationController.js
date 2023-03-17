@@ -16,15 +16,7 @@ const getLocations = asyncHandler(async (req, res) => {
 // @desc Set locations
 // @route POST /api/locations
 // @acces Public will be changed later with auth to private
-/* Tables
-description
-likes
-gAPI
-comments
-imageLink
-hashtags
-category
-*/
+
 const setLocation = asyncHandler(async (req, res) => {
   const userAddress = req.body.address;
   let lat, lng;
@@ -70,7 +62,6 @@ const setLocation = asyncHandler(async (req, res) => {
 
 const updateLocation = asyncHandler(async (req, res) => {
   const location = await Location.findById(req.params.id);
-  // 10-01-23 not implemented yet, just an example code, could be working already but needs further testing
   if (!location) {
     res.status(400);
     throw new Error("Location not found");
@@ -98,8 +89,6 @@ const deleteLocation = asyncHandler(async (req, res) => {
     throw new Error("Location not found");
   }
 
-  //const deletedLocation = await Location.findByIdAndRemove(req.params.id)
-  // oder
   location.remove();
 
   res.status(200).json({ message: `location ID deleted: ${req.params.id}` });
