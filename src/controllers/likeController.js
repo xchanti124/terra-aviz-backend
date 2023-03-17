@@ -1,12 +1,14 @@
 const asyncHandler = require("express-async-handler");
 const Location = require("../models/locationModel");
+const { errorResponse } = require("../helpers");
 
 const addLike = asyncHandler(async (req, res) => {
   const location = await Location.findById(req.params.id);
 
   if (!location) {
     res.status(400);
-    throw new Error("Location not found");
+    errorResponse(res, 400, "Location not found");
+    return;
   }
 
   let oldLikes = location.likes;
