@@ -25,7 +25,14 @@ const addComment = asyncHandler(async (req, res) => {
 });
 
 const deleteComment = asyncHandler(async (req, res) => {
-  const comment = await Comment.findById(req.params.commentId);
+  let comment;
+
+  try {
+    comment = await Comment.findById(req.params.commentId);
+  } catch (e) {
+    errorResponse(res, 404, "Failed to fetch comment");
+    return;
+  }
 
   if (req.user.id !== comment.ownerUser._id.toString()) {
     errorResponse(res, 403, "Forbidden");
