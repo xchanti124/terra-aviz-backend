@@ -69,7 +69,7 @@ const pages = asyncHandler(async (req, res) => {
           },
         },
       ],
-      queryCategory,
+      $and: [queryCategory],
     })
       .limit(locationsPerPage)
       .skip(locationsPerPage * pageNumber);
@@ -83,7 +83,7 @@ const pages = asyncHandler(async (req, res) => {
           },
         },
       ],
-      queryCategory,
+      $and: [queryCategory],
     });
 
     let calc = Math.ceil(pageCalc.length / 10);
